@@ -1,2 +1,2 @@
 oauth2
-oauthlib
+requests_oauthlib
