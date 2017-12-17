@@ -26,4 +26,5 @@ root = Element("FIXML", {'xmlns': 'http://www.fixprotocol.org/FIXML-5-0-SP2'})
 order = SubElement(root, "Order", {"TmInForce": f'{params["time_in_force"]}', "Typ": f'{params["trade_type"]}', "Side": f'{params["side"]}', "Acct": f'{params["account"]}'})
 SubElement(order, "Instrmt", {"SecTyp": f'{params["security_type"]}', "Sym": f'{params["symbol"]}'})
 SubElement(order, "OrdQty", {"Qty": f'{params["quantity"]}'})
-dump(root)
+
+print(ET.tostring(root, encoding='utf8', method='xml'))
