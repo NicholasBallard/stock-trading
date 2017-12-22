@@ -1,0 +1,4 @@
+stock_basket = \
+'''
+TSLA KR T F GM WMT SYF NVDA BABA GE AAPL RDS.A ZG MSFT NSC XOM GLW AMD
+'''
