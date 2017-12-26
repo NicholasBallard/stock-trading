@@ -25,6 +25,6 @@ r = oauth.get(url+'accounts/'+account+'/balances.json')
 
 pprint(r.text)
 
-f = open("output_file.txt", "w+")
-pprint(r.text, stream=f)
-f.close()
+# f = open("output_file.txt", "w+")
+# pprint(r.text, stream=f)
+# f.close()

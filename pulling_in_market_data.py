@@ -24,7 +24,7 @@ def write_output_to_file(content):
     path, name = os.path.split(__file__)
     name = re.sub('.py', '', name)
     with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 
-        "output_"+name+".txt"), "w+") as file:
+        "output_"+name+".py"), "w+") as file:
         json.dump(content.json(), file, indent=4)
     file.close()
 
@@ -37,7 +37,12 @@ stock_basket = stocks(stock_basket)
 #           used when a customized list of fields is desired. By default, all
 #           applicable data fields are returned.
 
-payload = {'symbols': stock_basket,}
+data_fields = \
+'''
+name,symbol,bid,bid_time,bidsz,bidtick,ask,ask_time,asksz,beta,vl
+'''
+
+payload = {'symbols': stock_basket, 'fids': data_fields}
 
 # Can use GET or POST, POST is recommended for larger lists of stocks
 data = requests.post(url=url, auth=oauth, params= payload)

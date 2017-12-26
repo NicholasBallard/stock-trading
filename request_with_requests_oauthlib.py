@@ -24,5 +24,3 @@ requests.
 '''
 
 pprint(r.json())
-
-for holding in r.json()['response']['accountholdings']`
