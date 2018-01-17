@@ -1,2 +1,4 @@
 oauth2
 requests_oauthlib
+requests
+mysqlclient

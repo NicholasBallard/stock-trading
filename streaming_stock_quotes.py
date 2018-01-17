@@ -21,6 +21,7 @@ with requests.Session() as s:
     s.get(base_url, params=payload)
 
 '''
+from io import BytesIO # BytesIO(r.content)
 import logging
 from requests import Request, Session
 from requests_oauthlib import OAuth1
@@ -48,10 +49,11 @@ def stream(symbols):
     prepped = s.prepare_request(req)
 
     resp = s.send(prepped, stream=True)
-
+    
+    b = BytesIO(resp.content)
     # with s.send(prepped, stream=True) as req:
 
-    for line in resp.iter_lines():
+    for line in b.iter_lines():
         if line:
             logging.debug(f'line is {line}, response content is {resp.content}')
             yield line
@@ -60,7 +62,7 @@ def stream(symbols):
 
 def read_stream():
     for line in stream('KR'):
-        print(line)
+        print(line) # can't use print() with bytes because casts to string
 
 read_stream()
 

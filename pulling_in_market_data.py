@@ -7,6 +7,18 @@ import json
 import requests
 import requests_oauthlib
 from requests_oauthlib import OAuth1
+from writing_to_database import write_json_to_mysql
+
+'''Import credentials from environment variables'''
+def get_env_variable(var_name):
+    '''Get the environment variable or return an exception.'''
+    try:
+        return os.environ[var_name]
+    except KeyError:
+        error_msg = "Set the {} environment variable.".format(var_name)
+        raise KeyError(error_msg)
+
+print(get_env_variable('ACCESS_TOKEN'))
 
 oauth = OAuth1(consumer_key, consumer_secret, access_token, access_secret,signature_type='auth_header')
 
@@ -21,7 +33,7 @@ def stocks(stock_basket):
     return stocks
 
 def write_output_to_file(content):
-    path, name = os.path.split(__file__)
+    name = os.path.split(__file__)[1]
     name = re.sub('.py', '', name)
     with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 
         "output_"+name+".py"), "w+") as file:
@@ -45,6 +57,8 @@ name,symbol,bid,bid_time,bidsz,bidtick,ask,ask_time,asksz,beta,vl
 payload = {'symbols': stock_basket, 'fids': data_fields}
 
 # Can use GET or POST, POST is recommended for larger lists of stocks
-data = requests.post(url=url, auth=oauth, params= payload)
+data = requests.post(url=url, auth=oauth, params=payload)
 
-write_output_to_file(data)
+# write_output_to_file(data)
+
+# write_json_to_mysql(data.text)
