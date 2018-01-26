@@ -62,3 +62,5 @@ data = requests.post(url=url, auth=oauth, params=payload)
 # write_output_to_file(data)
 
 # write_json_to_mysql(data.text)
+
+print(stock_basket)

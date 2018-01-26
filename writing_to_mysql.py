@@ -1,6 +1,5 @@
 import numpy as np
 import MySQLdb
-from import datetime as dt
 
 conn = MySQLdb.connect(host=    "localhost",
                        user=    "nicho",

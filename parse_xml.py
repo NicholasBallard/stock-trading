@@ -27,4 +27,4 @@ order = SubElement(root, "Order", {"TmInForce": f'{params["time_in_force"]}', "T
 SubElement(order, "Instrmt", {"SecTyp": f'{params["security_type"]}', "Sym": f'{params["symbol"]}'})
 SubElement(order, "OrdQty", {"Qty": f'{params["quantity"]}'})
 
-print(ET.tostring(root, encoding='utf8', method='xml'))
+pprint(ET.tostring(root, encoding='utf8', method='xml'))

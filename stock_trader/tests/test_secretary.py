@@ -13,7 +13,7 @@ class DefaultSecretaryTestCase(SecretaryTestCase):
         # self.assertFalse(self.sec, None)
 
     def test_retreives_day_history(self):
-        self.sec.day_summary(""
+        self.fail()
 
-if __name__ == '__main__':
-    unittest.main()
+# if __name__ == '__main__':
+#     unittest.main()
