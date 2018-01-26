@@ -34,11 +34,11 @@ SubElement(order, "OrdQty", {"Qty": f'{params["quantity"]}'})
 # adds the xml declaration above the root
 data = ET.tostring(root, encoding='utf8', method='xml')
 
-r = requests.post(url=url+'accounts/'+account+'/orders.json', auth=oauth, data=data)
+# r = requests.post(url=url+'accounts/'+account+'/orders.json', auth=oauth, data=data)
 
 '''If you feel like streaming the response to a file'''
 # f = open(os.path.join(os.path.dirname((os.path.abspath(__file__))), "output_preview_an_order.txt"), "w+")
 # f.write(r)
 # f.close()
 
-pprint(r.json())
+pprint(data)

@@ -1,3 +1,14 @@
 {
-    "python.pythonPath": "C:\\Python36\\python.exe"
+    "python.pythonPath": "C:\\Python36\\python.exe",
+    "python.unitTest.unittestArgs": [
+        "-v",
+        "-s",
+        "./stock_trader",
+        "-p",
+        "test*.py"
+    ],
+    "python.unitTest.unittestEnabled": false,
+    "python.unitTest.promptToConfigure": false,
+    "python.unitTest.pyTestEnabled": false,
+    "python.unitTest.nosetestsEnabled": false
 }
