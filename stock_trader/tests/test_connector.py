@@ -56,7 +56,19 @@ class DefaultConnectionTestCase(ConnectionTestCase):
         r = self.conn.get_account_details()
         response_message = r["response"]["error"]
         self.assertEqual(response_message, "Success")
+    
+    def test_account_specific_balance(self):
+        r = self.conn.balance()
+        response_message = r["response"]["error"]
+        self.assertEqual(response_message, "Success")
 
+    def test_account_specific_holdings(self):
+        r = self.conn.holdings()
+        self.assertTrue("Success" in r.error.text)
+
+    def test_account_specific_history(self):
+        r = self.conn.history("all")
+        self.assertTrue("Success" in r.error.text)
 
 if __name__ == '__main__':
     unittest.main()

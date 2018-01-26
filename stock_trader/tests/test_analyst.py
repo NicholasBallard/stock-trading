@@ -1,14 +1,11 @@
-from json import loads
 import unittest
 from analyst.models import Analyst
-from connector.connection import Connection
 
 
 class AnalystTestCase(unittest.TestCase):
 
     def setUp(self):
         self.analyst = Analyst()
-        self.conn = Connection()
 
 
 class DefaultAnalystTestCase(AnalystTestCase):
@@ -18,11 +15,17 @@ class DefaultAnalystTestCase(AnalystTestCase):
                          'Analyst manager string method did not instantiate.')
 
     def test_reading_account_information(self):
-        r = self.conn.get_account_details()
+        r = self.analyst.get_account_details()
         self.assertTrue(isinstance(r, dict))  # r.json() returns dict
 
     def test_calculate_total_securities_to_cash_ratio(self):
-        self.fail()
+        r = self.analyst.cash_available()
+        self.assertTrue(isinstance(r, (int, float)))
+
+    def test_loads_pandas_dataframe_from_latest_ticker(self):
+        df = self.analyst.dataframe()
+        self.assertTrue(type())
+        
 
 if __name__ == '__main__':
     unittest.main()

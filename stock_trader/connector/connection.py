@@ -4,6 +4,7 @@ import os
 ROOTDIR = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 sys.path.append(ROOTDIR)
 
+from bs4 import BeautifulSoup
 from datetime import datetime
 from pprint import pprint
 import requests
@@ -23,31 +24,48 @@ class Connection(object):
         self.oauth = OAuth1(self.ckey, self.csec, self.akey,
                             self.asec, signature_type='auth_header')
 
-    def request_to_ally(self, url):
-        self.request = requests.get(url, auth=self.oauth)
+    def request_to_ally(self, url, **params):
+        self.request = requests.get(url, auth=self.oauth, **params)
 
         return self.request
 
     def market_status(self):
         _url = 'https://api.tradeking.com/v1/market/clock.json'
-        self.request = Connection.request_to_ally(self, url=_url)
-        _market_status = self.request.json()["response"]["message"]
+        request = Connection.request_to_ally(self, url=_url)
+        market_status = request.json()["response"]["message"]
 
-        return f"It is {str(datetime.now()).split('.')[0]}.\n{_market_status}."
+        return f"It is {str(datetime.now()).split('.')[0]}.\n{market_status}."
 
     def get_account_values(self):
         _url = 'https://api.tradeking.com/v1/accounts/balances.json'
-        self.request = Connection.request_to_ally(self, _url)
+        request = Connection.request_to_ally(self, _url)
 
-        return self.request.json()
+        return request.json()
 
     # For the Analyst to work with.
     def get_account_details(self):
         _url = 'https://api.tradeking.com/v1/accounts.json'
-        self.request = Connection.request_to_ally(self, _url)
+        request = Connection.request_to_ally(self, _url)
 
-        return self.request.json()
+        return request.json()
 
+    def balance(self):
+        _url = f"https://api.tradeking.com/v1/accounts/{self.account}/balances.json"
+        request = Connection.request_to_ally(self, _url)
 
-c = Connection()
-pprint(c.get_account_details())
+        return request.json()
+
+    def holdings(self):
+        _url = f"https://api.tradeking.com/v1/accounts/{self.account}/holdings.xml"
+        request = Connection.request_to_ally(self, _url)
+        soup = BeautifulSoup(request.text, "xml")
+
+        return soup
+
+    def history(self, range):
+        _url = f"https://api.tradeking.com/v1/accounts/{self.account}/history.xml"
+        params = {'range': range}
+        request = Connection.request_to_ally(self, url=_url, params=params)
+        soup = BeautifulSoup(request.text, "xml")
+
+        return soup
