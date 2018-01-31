@@ -30,7 +30,8 @@ class Ticker(Connection):
 
     def run(self):
 
-        os.makedirs("ticks", exist_ok=True)
+        export_path = os.path.abspath(os.path.join(ROOTDIR, '..', '..'))
+        os.makedirs(os.path.join(export_path, "ticker_export"), exist_ok=True)
         status = True
 
         while status:
@@ -51,7 +52,7 @@ class Ticker(Connection):
 
                 date = quotes[1]["date"]
 
-                with open(os.path.join(os.path.join(os.path.dirname(os.path.abspath(__file__)), "ticks"), date + " ticker.csv"), "a+", newline='') as file:
+                with open(os.path.join(export_path, "ticker_export", date + " ticker.csv"), "a+", newline='') as file:
                     csv_writer = csv.writer(
                         file, delimiter=',', lineterminator='\n')
                     for line in data:
@@ -68,4 +69,3 @@ class Ticker(Connection):
 
             except Exception:
                 continue
-
