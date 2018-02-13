@@ -1,5 +1,5 @@
 import unittest
-from connector.connection import Connection
+from stock_trader.models.connection import Connection
 
 
 class ConnectionTestCase(unittest.TestCase):

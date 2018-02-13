@@ -1,10 +1,4 @@
-import sys
-import os
-
-ROOTDIR = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
-sys.path.append(ROOTDIR)
-
-from connector.connection import Connection
+from connection import Connection
 
 # prepare daily summary report.
 
@@ -15,7 +9,7 @@ class Secretary(Connection):
         self.name = name
     
     def __str__(self):
-        return "Hiya! I'm a big busty blonde!"
+        return "Hiya! I'm the secretary. I tell you how well you did today. :)"
 
     def summarize_day(self):
         # values: all, today, current_week, current_month, last_month

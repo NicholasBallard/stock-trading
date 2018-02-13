@@ -9,8 +9,8 @@ import datetime
 import pprint
 import requests
 import time
-from connector.connection import Connection
-from stock_basket import stocks
+from connection import Connection
+from stock_trader.stock_basket import stocks
 
 
 class Ticker(Connection):
@@ -61,7 +61,7 @@ class Ticker(Connection):
 
                 time.sleep(3)
 
-                if 'open' in Ticker.market_status():
+                if 'open' in Ticker.market_status(self):
                     status = True
                 else:
                     status = False

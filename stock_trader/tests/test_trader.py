@@ -1,6 +1,6 @@
 import unittest
 import requests
-from trader.models import FundManager
+from stock_trader.models.trader import FundManager
 
 
 class SimpleHedgeFundManagerTestCase(unittest.TestCase):

@@ -6,7 +6,7 @@ import sys
 ROOTDIR = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 sys.path.append(ROOTDIR)
 
-from ticker.models import Ticker
+from ticker import Ticker
 
 
 class Analyst(Ticker):
@@ -31,29 +31,28 @@ class Analyst(Ticker):
         self.headers = self.headers.append('nan')
         df = pd.read_csv("C:\\Users\\nicho\\Desktop\\stock-trading\\stock_trader\\2018-01-22 ticker.csv", header=self.headers)
 
-t = Ticker()
-current = t.quote()['response']['quotes']['quote']
+# t = Ticker()
+# current = t.quote()['response']['quotes']['quote']
 
-fromavg = list()
-for stock in current:
-    stock['from-avg'] = (float(stock['ask']) - float(stock['vwap'])) / float(stock['vwap'])
-    fromavg.append(stock['from-avg'])
+# fromavg = list()
+# for stock in current:
+#     stock['from-avg'] = (float(stock['ask']) - float(stock['vwap'])) / float(stock['vwap'])
+#     fromavg.append(stock['from-avg'])
 
-fromavg.sort()
-print(fromavg)
+# fromavg.sort()
+# print(fromavg)
 
-for stock in current:
-    for key, value in stock.items():
-        if value == fromavg[-1]:
-            print(stock['symbol'])
-            x = stock['ask']
+# for stock in current:
+#     for key, value in stock.items():
+#         if value == fromavg[-1]:
+#             print(stock['symbol'])
+#             x = stock['ask']
 
 
 
-price = float(x)
-print(x, "per share")
-a = Analyst()
-cash = a.cash_available() - 10
+# price = float(x)
+# print(x, "per share")
+# a = Analyst()
+# cash = a.cash_available() - 10
 
-print(f"buy {int(cash/price)} shares")
-
+# print(f"buy {int(cash/price)} shares")

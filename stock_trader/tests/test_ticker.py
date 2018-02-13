@@ -1,5 +1,5 @@
 import unittest
-from ticker.models import Ticker
+from stock_trader.models.ticker import Ticker
 
 
 class TickerTestCase(unittest.TestCase):

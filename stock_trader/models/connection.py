@@ -7,9 +7,10 @@ sys.path.append(ROOTDIR)
 from bs4 import BeautifulSoup
 from datetime import datetime
 from pprint import pprint
-import requests
 from requests_oauthlib import OAuth1
-from ally_account_info import *
+import requests
+
+from stock_trader.ally_account_info import *
 
 
 class Connection(object):
