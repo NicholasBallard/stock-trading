@@ -1,4 +1,0 @@
-('{ "response":{ "@id":"a570f21a-f24c-4d20-8fc9-868b0d3d56dd", "elapsedtime": '
- '"0", '
- '"accountbalance":{"account":"5HK21103","accountvalue":"2259.79","buyingpower":{"cashavailableforwithdrawal":"1365.53","daytrading":"0","equitypercentage":"100","options":"1365.53","soddaytrading":"0","sodoptions":"1365.53","sodstock":"2731.06","stock":"2731.06"},"fedcall":"0","housecall":"0","money":{"accruedinterest":"0","cash":"280.48","cashavailable":"0","marginbalance":"280.48","mmf":"0","total":"280.48","uncleareddeposits":"0","unsettledfunds":"0","yield":"0"},"securities":{"longoptions":"0","longstocks":"1979.31","options":"0","shortoptions":"0","shortstocks":"0","stocks":"1979.31","total":"1979.31"}}, '
- '"error": "Success" } }')

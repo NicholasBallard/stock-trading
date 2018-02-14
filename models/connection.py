@@ -70,3 +70,7 @@ class Connection(object):
         soup = BeautifulSoup(request.text, "xml")
 
         return soup
+
+c = Connection()
+
+print(c.account)
