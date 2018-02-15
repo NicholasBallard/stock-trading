@@ -1,6 +1,5 @@
 from connection import Connection
 
-
 class Portfolio(Connection):
 
     def __init__(self):
@@ -9,7 +8,5 @@ class Portfolio(Connection):
     def __str__(self):
         return "I'm saying something"
 
-
 p = Portfolio()
-
-print(p)
+print(p)  

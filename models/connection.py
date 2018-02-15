@@ -10,7 +10,7 @@ from pprint import pprint
 from requests_oauthlib import OAuth1
 import requests
 
-from stock_trader.ally_account_info import *
+from ally_account_info import *
 
 
 class Connection(object):

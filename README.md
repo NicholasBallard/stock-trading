@@ -22,3 +22,4 @@ Automated stock trading program using Alpha Vantage and Ally Invest APIs.
 Remember this. This program is not about being God. There is no need to have all of the answers or do it perfect.
 
 Making the Day's Bread is what matters. Do this, and your task is accomplished.
+

@@ -1,19 +1,22 @@
-import csv
-import time
 import os
 import sys
-from ticker.models import Ticker
+import time
 
-ROOTDIR = os.path.abspath(os.path.dirname(__file__))
-sys.path.append(ROOTDIR)
+sys.path.append(os.path.join(os.path.split(__file__)[0], "models"))
+
+from models.portfolio import Portfolio
+
 
 def Main():
 
-    t = Ticker()
-    
-    t.run()
-    time.sleep(1)
-    
+    # t = Ticker()
+
+    # t.run()
+    # time.sleep(1)
+
+    p = Portfolio()
+    return print(p)
+
 
 if __name__ == '__main__':
     Main()

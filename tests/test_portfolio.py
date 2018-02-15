@@ -1,5 +1,5 @@
 import unittest
-from stock_trader.models.portfolio import Portfolio
+from models.por import Portfolio
 
 
 class PortfolioTestCase(unittest.TestCase):
