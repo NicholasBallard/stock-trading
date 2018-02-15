@@ -31,6 +31,8 @@ class Analyst(Ticker):
         self.headers = self.headers.append('nan')
         df = pd.read_csv("C:\\Users\\nicho\\Desktop\\stock-trading\\stock_trader\\2018-01-22 ticker.csv", header=self.headers)
 
+        return df
+
 # t = Ticker()
 # current = t.quote()['response']['quotes']['quote']
 

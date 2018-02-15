@@ -27,3 +27,5 @@ for i in transactions:
     commission += i
 
 print(commission)
+
+print(sec)

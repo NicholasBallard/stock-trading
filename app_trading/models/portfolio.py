@@ -7,6 +7,3 @@ class Portfolio(Connection):
 
     def __str__(self):
         return "I'm saying something"
-
-p = Portfolio()
-print(p)  

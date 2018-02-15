@@ -1,5 +1,5 @@
 import unittest
-from stock_trader.models.analyst import Analyst
+from models.analyst import Analyst
 
 
 class AnalystTestCase(unittest.TestCase):

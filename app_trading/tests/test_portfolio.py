@@ -1,5 +1,10 @@
+import sys, os
+
+sys.path.append(os.path.join(os.path.dirname(os.path.dirname(__file__)),"models"))
+
 import unittest
-from models.por import Portfolio
+from models.connection import Connection
+from models.portfolio import Portfolio
 
 
 class PortfolioTestCase(unittest.TestCase):
@@ -27,3 +32,6 @@ Assert: This is the last step of a unit test application. In this step we will c
 # TODO: Grab the day's position. Add to a dictionary.
 
 # TODO:
+
+if __name__ == "__main__":
+    unittest.main()

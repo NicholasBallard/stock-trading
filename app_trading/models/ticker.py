@@ -10,7 +10,7 @@ import pprint
 import requests
 import time
 from connection import Connection
-from stock_trader.stock_basket import stocks
+from stock_basket import stocks
 
 
 class Ticker(Connection):
@@ -69,3 +69,6 @@ class Ticker(Connection):
 
             except Exception:
                 continue
+
+t = Ticker()
+print(t.stocks)
