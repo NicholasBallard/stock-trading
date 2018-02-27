@@ -70,5 +70,35 @@ class Ticker(Connection):
             except Exception:
                 continue
 
-t = Ticker()
-print(t.stocks)
+    def stock_performance(self):
+        '''
+        Write to screen real-time stock changes from open and from the last half hour.
+        '''
+
+        quotes = Ticker.quote(self)['response']['quotes']['quote']
+
+        current_tick = list()
+        for stock in range(len(quotes)):
+            # get opening price
+            _open = float(quotes[stock]["opn"])
+            # get latest price
+            _last_price = float(quotes[stock]["bid"])
+            # determine percentage change from open
+            chg_from_open = (_last_price - _open) / _open
+            # make a rounded percent
+            chg_from_open = round((chg_from_open * 100), 2)
+            # append features to a list
+            stock = list([quotes[stock]["bid_time"], str(
+                chg_from_open), quotes[stock]["name"]])
+            # add stock features list to current_tick list
+            current_tick.append(stock)
+
+        # sort list by nested list index i.e. list[list][2]
+        current_tick = sorted(current_tick, key=lambda x: float(x[1]))
+        for stock in current_tick:
+            for item in stock:
+                print(item.ljust(8), end='\t')
+            print()
+        print('-'*50)
+
+        return

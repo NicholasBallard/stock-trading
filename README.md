@@ -23,3 +23,6 @@ Remember this. This program is not about being God. There is no need to have all
 
 Making the Day's Bread is what matters. Do this, and your task is accomplished.
 
+---
+
+Making myself productive on this app. Okay, what does it need to do right now?

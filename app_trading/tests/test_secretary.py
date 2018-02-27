@@ -1,5 +1,5 @@
 import unittest
-from stock_trader.models.secretary import Secretary
+from app_trading.models.secretary import Secretary
 
 class SecretaryTestCase(unittest.TestCase):
 
