@@ -1,5 +1,6 @@
 .ipynb_checkpoints/*
 /venv/*
-__pycache__/*
+__pycache__/
 ally_account_info.py
 logs/
+.vscode
